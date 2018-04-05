@@ -7,4 +7,10 @@
         <servlet-name>Test</servlet-name>
         <servlet-class>fr.kelerm.servlet.Test</servlet-class>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Test</servlet-name>
+        <url-pattern>/guts</url-pattern>
+    </servlet-mapping>
+
 </web-app>
