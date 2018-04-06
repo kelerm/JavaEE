@@ -17,5 +17,13 @@
         out.println( parametre );
     %>
 </p>
+<p>
+    Récupération du bean :
+    <%
+        fr.kelerm.bean.Person notreBean = (fr.kelerm.bean.Person) request.getAttribute("kelerm");
+        out.println( notreBean.getPrenom() );
+        out.println( notreBean.getNom() );
+    %>
+</p>
 </body>
 </html>
