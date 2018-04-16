@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,20 +10,32 @@
 <body>
 <p>Ceci est une page générée depuis une JSP.</p>
 <p>
-    <%
-        String attribut = (String) request.getAttribute("test");
-        out.println( attribut );
-
-        String parametre = request.getParameter( "auteur" );
-        out.println( parametre );
-    %>
+    ${test}
+    ${param.auteur}
 </p>
 <p>
     Récupération du bean :
+    ${kelerm.prenom}
+    ${kelerm.nom}
+</p>
+<p>
+    Récupération de la liste :
     <%
-        fr.kelerm.bean.Person notreBean = (fr.kelerm.bean.Person) request.getAttribute("kelerm");
-        out.println( notreBean.getPrenom() );
-        out.println( notreBean.getNom() );
+        List<Integer> liste = (List<Integer>) request.getAttribute("liste");
+        for (Integer i : liste) {
+            out.println(i + " : ");
+        }
+    %>
+</p>
+<p>
+    Récupération du jour du mois :
+    <%
+        Integer jourDuMois = (Integer) request.getAttribute("jour");
+        if (jourDuMois % 2 == 0) {
+            out.println("Jour pair : " + jourDuMois);
+        } else {
+            out.println("Jour impair : " + jourDuMois);
+        }
     %>
 </p>
 </body>
